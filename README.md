@@ -89,4 +89,4 @@ Or visit the live site linked above.
 
 ## Author
 
-**Aime Ndayambaje**
+**Ndayambaje Aime**
