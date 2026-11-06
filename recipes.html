@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Five African recipes: Jollof Rice, Lamb Tagine, Injera, Isombe and Bunny Chow, with filters by region and favorites.">
+  <title>Recipes | Tastes of Africa</title>
+
+  <!-- Google Fonts: Bebas Neue (headings), DM Sans (body), IBM Plex Mono (labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+  <!-- Site styles and script (shared by every page).
+       script.js loads without "defer" so the saved theme is applied
+       before the page is drawn (no flash); the rest of the script waits
+       for the page to finish loading. -->
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js"></script>
+</head>
+<body>
+
+  <!-- Keyboard users can jump straight to the content -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ================= SITE HEADER (shared) ================= -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+
+        <!-- Logo -->
+        <a class="logo" href="index.html">
+          <span class="logo__name">Tastes of Africa</span>
+          <span class="logo__tagline">Food heritage · Recipes · Stories</span>
+        </a>
+
+        <!-- Main navigation -->
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="recipes.html" aria-current="page">Recipes</a></li>
+            <li><a href="regions/west-africa.html">Regions</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Theme toggle + hamburger menu (phones) -->
+        <div class="header-actions">
+          <button class="icon-btn theme-toggle" type="button" aria-label="Switch between dark and light theme">
+            <!-- Sun icon (shown in dark theme) -->
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <!-- Moon icon (shown in light theme) -->
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.8 6.8 0 0 0 10.7 10.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <button class="icon-btn menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= PAGE HEADER ================= -->
+    <header class="page-header">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Recipes</li>
+          </ol>
+        </nav>
+        <p class="label label--accent">Recipes</p>
+        <h1>
+          <span class="line">Five dishes,</span>
+          <span class="line">five kitchens.</span>
+        </h1>
+        <p class="lead">From West African jollof to Durban bunny chow: step-by-step recipes with scalable ingredients, video tutorials and the story behind each dish.</p>
+      </div>
+    </header>
+
+    <!-- ================= RECIPE GRID =================
+         Filter buttons use data-filter; each card uses data-region.
+         Favorite buttons use data-id (saved to localStorage in script.js). -->
+    <section class="section" aria-label="All recipes">
+      <div class="container">
+
+        <div class="section-head">
+          <p class="label mb-0">Filter by region</p>
+          <div class="filters" role="group" aria-label="Filter recipes by region">
+            <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-btn" type="button" data-filter="west-africa" aria-pressed="false">West</button>
+            <button class="filter-btn" type="button" data-filter="east-africa" aria-pressed="false">East</button>
+            <button class="filter-btn" type="button" data-filter="north-africa" aria-pressed="false">North</button>
+            <button class="filter-btn" type="button" data-filter="southern-africa" aria-pressed="false">Southern</button>
+          </div>
+        </div>
+
+        <div class="card-grid" id="recipe-grid">
+          <!-- Recipe card: Jollof Rice -->
+          <article class="recipe-card" data-region="west-africa">
+            <div class="media">
+              <img src="images/jollof-rice.jpg" alt="Roast chicken legs resting on a tray of orange-red jollof rice" data-label="Photo: Jollof rice" width="660" height="440" loading="lazy" decoding="async">
+            </div>
+            <div class="recipe-card__body">
+              <p class="tag">Nigeria · West Africa</p>
+              <h2><a class="recipe-card__link" href="recipes/jollof-rice.html">Jollof Rice</a></h2>
+              <p>Tomato-and-pepper rice cooked low until the bottom turns smoky. The star of every West African party.</p>
+              <div class="recipe-card__footer">
+                <span class="label label--accent mb-0" aria-hidden="true">View recipe <span class="arrow">→</span></span>
+                <button class="icon-btn fav-btn" type="button" data-id="jollof-rice" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.6-4.6-9.4-9.3C1.4 7.8 3.5 4.5 7 4.5c2.1 0 3.7 1.1 5 3 1.3-1.9 2.9-3 5-3 3.5 0 5.6 3.3 4.4 6.5-1.8 4.7-9.4 9.3-9.4 9.3z"/></svg>
+                  <span class="visually-hidden">Favorite: Jollof Rice</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Recipe card: Lamb Tagine -->
+          <article class="recipe-card" data-region="north-africa">
+            <div class="media">
+              <img src="images/tagine.jpg" alt="A Moroccan tagine served on a plate beside its cone-lidded clay pot, with steam rising." data-label="Photo: Lamb tagine" width="660" height="440" loading="lazy" decoding="async">
+            </div>
+            <div class="recipe-card__body">
+              <p class="tag">Morocco · North Africa</p>
+              <h2><a class="recipe-card__link" href="recipes/tagine.html">Lamb Tagine</a></h2>
+              <p>Slow-braised lamb with apricots, ras el hanout and preserved lemon, cooked in a cone-lidded clay pot.</p>
+              <div class="recipe-card__footer">
+                <span class="label label--accent mb-0" aria-hidden="true">View recipe <span class="arrow">→</span></span>
+                <button class="icon-btn fav-btn" type="button" data-id="tagine" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.6-4.6-9.4-9.3C1.4 7.8 3.5 4.5 7 4.5c2.1 0 3.7 1.1 5 3 1.3-1.9 2.9-3 5-3 3.5 0 5.6 3.3 4.4 6.5-1.8 4.7-9.4 9.3-9.4 9.3z"/></svg>
+                  <span class="visually-hidden">Favorite: Lamb Tagine</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Recipe card: Injera -->
+          <article class="recipe-card" data-region="east-africa">
+            <div class="media">
+              <img src="images/injera.jpg" alt="Spongy injera flatbread topped with lentil, split-pea, greens and vegetable stews, with rolled injera and a cup of tea behind" data-label="Photo: Injera" width="660" height="440" loading="lazy" decoding="async">
+            </div>
+            <div class="recipe-card__body">
+              <p class="tag">Ethiopia · East Africa</p>
+              <h2><a class="recipe-card__link" href="recipes/injera.html">Injera</a></h2>
+              <p>Spongy, sour teff flatbread that doubles as plate and spoon for Ethiopian stews.</p>
+              <div class="recipe-card__footer">
+                <span class="label label--accent mb-0" aria-hidden="true">View recipe <span class="arrow">→</span></span>
+                <button class="icon-btn fav-btn" type="button" data-id="injera" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.6-4.6-9.4-9.3C1.4 7.8 3.5 4.5 7 4.5c2.1 0 3.7 1.1 5 3 1.3-1.9 2.9-3 5-3 3.5 0 5.6 3.3 4.4 6.5-1.8 4.7-9.4 9.3-9.4 9.3z"/></svg>
+                  <span class="visually-hidden">Favorite: Injera</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Recipe card: Isombe -->
+          <article class="recipe-card" data-region="east-africa">
+            <div class="media">
+              <img src="images/isombe.jpg" alt="Bowl of dark green pounded cassava-leaf stew, with white rice and fried plantain on the side" data-label="Photo: Isombe" width="660" height="440" loading="lazy" decoding="async">
+            </div>
+            <div class="recipe-card__body">
+              <p class="tag">Rwanda · East Africa</p>
+              <h2><a class="recipe-card__link" href="recipes/isombe.html">Isombe</a></h2>
+              <p>Pounded cassava leaves simmered with peanut paste, eggplant and palm oil.</p>
+              <div class="recipe-card__footer">
+                <span class="label label--accent mb-0" aria-hidden="true">View recipe <span class="arrow">→</span></span>
+                <button class="icon-btn fav-btn" type="button" data-id="isombe" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.6-4.6-9.4-9.3C1.4 7.8 3.5 4.5 7 4.5c2.1 0 3.7 1.1 5 3 1.3-1.9 2.9-3 5-3 3.5 0 5.6 3.3 4.4 6.5-1.8 4.7-9.4 9.3-9.4 9.3z"/></svg>
+                  <span class="visually-hidden">Favorite: Isombe</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Recipe card: Bunny Chow -->
+          <article class="recipe-card" data-region="southern-africa">
+            <div class="media">
+              <img src="images/bunny-chow.jpg" alt="Three small hollowed-out bread loaves filled with golden curry and coriander, on an animal-print platter" data-label="Photo: Bunny chow" width="660" height="440" loading="lazy" decoding="async">
+            </div>
+            <div class="recipe-card__body">
+              <p class="tag">South Africa · Southern Africa</p>
+              <h2><a class="recipe-card__link" href="recipes/bunny-chow.html">Bunny Chow</a></h2>
+              <p>Durban curry served in a hollowed-out loaf of white bread. The bread is the bowl.</p>
+              <div class="recipe-card__footer">
+                <span class="label label--accent mb-0" aria-hidden="true">View recipe <span class="arrow">→</span></span>
+                <button class="icon-btn fav-btn" type="button" data-id="bunny-chow" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.6-4.6-9.4-9.3C1.4 7.8 3.5 4.5 7 4.5c2.1 0 3.7 1.1 5 3 1.3-1.9 2.9-3 5-3 3.5 0 5.6 3.3 4.4 6.5-1.8 4.7-9.4 9.3-9.4 9.3z"/></svg>
+                  <span class="visually-hidden">Favorite: Bunny Chow</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= SITE FOOTER (shared) ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a class="logo" href="index.html">
+          <span class="logo__name">Tastes of Africa</span>
+        </a>
+        <p class="footer__copy">© <time datetime="2026">2026</time> · Celebrating African food heritage</p>
+        <nav aria-label="Footer">
+          <ul class="footer-links">
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
