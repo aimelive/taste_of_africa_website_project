@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Our mission to promote African food heritage, a brief history of African cuisine and its global influence, and a map of Kimironko Market in Kigali.">
+  <title>About us | Tastes of Africa</title>
+
+  <!-- Google Fonts: Bebas Neue (headings), DM Sans (body), IBM Plex Mono (labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+  <!-- Site styles and script (shared by every page).
+       script.js loads without "defer" so the saved theme is applied
+       before the page is drawn (no flash); the rest of the script waits
+       for the page to finish loading. -->
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js"></script>
+</head>
+<body>
+
+  <!-- Keyboard users can jump straight to the content -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ================= SITE HEADER (shared) ================= -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+
+        <!-- Logo -->
+        <a class="logo" href="index.html">
+          <span class="logo__name">Tastes of Africa</span>
+          <span class="logo__tagline">Food heritage · Recipes · Stories</span>
+        </a>
+
+        <!-- Main navigation -->
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="regions/west-africa.html">Regions</a></li>
+            <li><a href="about.html" aria-current="page">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Theme toggle + hamburger menu (phones) -->
+        <div class="header-actions">
+          <button class="icon-btn theme-toggle" type="button" aria-label="Switch between dark and light theme">
+            <!-- Sun icon (shown in dark theme) -->
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <!-- Moon icon (shown in light theme) -->
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.8 6.8 0 0 0 10.7 10.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <button class="icon-btn menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= PAGE HEADER ================= -->
+    <header class="page-header">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">About</li>
+          </ol>
+        </nav>
+        <div class="grid-2 align-center">
+          <div>
+            <p class="label label--accent">About us</p>
+            <h1>
+              <span class="line">Keeping Africa's</span>
+              <span class="line">kitchens alive.</span>
+            </h1>
+            <p class="lead">Tastes of Africa collects recipes, ingredients and stories from across the continent to celebrate African food heritage and share it with the world.</p>
+          </div>
+          <!-- 4:3 frame so the whole spread of dishes stays in view -->
+          <div class="media" style="--ratio: 4 / 3;">
+            <img src="images/about.jpg" alt="A shared meal seen from above: fufu balls on yellow, green and red soups, yam fries, fried plantain, pepper sauce and a bowl of spaghetti in tomato sauce" data-label="Photo: A shared African meal" width="600" height="450" decoding="async">
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= MISSION STATEMENT ================= -->
+    <section class="section" aria-labelledby="mission-title">
+      <div class="container">
+        <!-- Section heading styled as a small label; the statement is the focus -->
+        <h2 class="label" id="mission-title">Our mission</h2>
+        <p class="quote">Every recipe is a piece of history. We record Africa's dishes, credit the cultures behind them and help more people cook them at home.</p>
+
+        <div class="grid-3 section">
+          <div class="panel stack">
+            <p class="label label--accent mb-0">01</p>
+            <h3>Record</h3>
+            <p class="text-muted">Write down recipes the way they are cooked in homes and markets, so they are not lost.</p>
+          </div>
+          <div class="panel stack">
+            <p class="label label--accent mb-0">02</p>
+            <h3>Credit</h3>
+            <p class="text-muted">Name the countries, communities and cooks that each dish comes from.</p>
+          </div>
+          <div class="panel stack">
+            <p class="label label--accent mb-0">03</p>
+            <h3>Cook</h3>
+            <p class="text-muted">Give clear steps and scalable ingredient lists, so anyone can try them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HISTORY & GLOBAL INFLUENCE ================= -->
+    <section class="section" aria-labelledby="history-title">
+      <div class="container grid-2">
+        <div class="section-head">
+          <div>
+            <p class="label">A brief history</p>
+            <h2 id="history-title">
+              <span class="line">Thousands of years</span>
+              <span class="line">at the table.</span>
+            </h2>
+          </div>
+        </div>
+
+        <div class="prose">
+          <h3>Ancient roots</h3>
+          <p>Africa is one of the world's oldest food cradles. <mark>Sorghum</mark> and <mark>pearl millet</mark> were domesticated in the Sahel thousands of years ago, <mark>teff</mark> and <mark>coffee</mark> come from the Ethiopian highlands, and African rice was first farmed along the inner Niger Delta. In ancient Egypt, bakers and brewers were making leavened bread and beer more than 5,000 years ago.</p>
+
+          <h3>Trade and exchange</h3>
+          <p>Caravans crossing the Sahara carried salt, grain and spices, while Swahili ports traded with Arabia, Persia and India across the Indian Ocean. From the 1500s, the <mark>Columbian exchange</mark> brought maize, cassava, peanuts, tomatoes and chili peppers from the Americas. They became so central to African cooking that it is hard to imagine jollof or isombe without them.</p>
+
+          <h3>Africa's global influence</h3>
+          <p>Enslaved Africans carried seeds, skills and recipes to the Americas. <mark>Okra</mark>, <mark>black-eyed peas</mark> and <mark>sesame</mark> crossed the Atlantic with them, and West African rice-growing knowledge built the rice plantations of the Carolinas. The word “gumbo” is thought to come from a Bantu word for okra, and Brazilian acarajé is a close cousin of West African akara bean fritters.</p>
+
+          <h3>African food today</h3>
+          <p>African chefs, home cooks and food writers are bringing the continent's cuisines to a worldwide audience: <mark>peri-peri</mark> chicken, born from Mozambican and Portuguese cooking, is sold around the globe, teff fills health-food shelves, and jollof is on restaurant menus from London to Houston.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MAP: KIMIRONKO MARKET ================= -->
+    <section class="section" aria-labelledby="market-title">
+      <div class="container grid-2 align-center">
+        <div>
+          <div class="section-head">
+            <div>
+              <p class="label">Food landmark</p>
+              <h2 class="h2-sm" id="market-title">Kimironko Market, Kigali</h2>
+            </div>
+          </div>
+          <div class="stack">
+            <div class="prose">
+              <p>Kimironko is one of the biggest and busiest markets in Kigali, Rwanda. Under its long roofs, traders sell fresh <mark>cassava leaves</mark> for isombe, green bananas, beans, tropical fruit, spices and brightly printed fabric.</p>
+              <p>It is the best place in the city to see where Rwandan home cooking begins.</p>
+            </div>
+            <ul class="tag-list" aria-label="What you will find">
+              <li>Cassava leaves</li>
+              <li>Matoke</li>
+              <li>Beans</li>
+              <li>Spices</li>
+              <li>Fabric</li>
+            </ul>
+          </div>
+        </div>
+        <figure>
+          <div class="embed embed--map">
+            <iframe src="https://maps.google.com/maps?q=Kimironko+Market,+Kigali&amp;output=embed" title="Google Map of Kimironko Market in Kigali, Rwanda" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <figcaption class="media-caption">Map: Kimironko Market, Kigali, Rwanda</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= SITE FOOTER (shared) ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a class="logo" href="index.html">
+          <span class="logo__name">Tastes of Africa</span>
+        </a>
+        <p class="footer__copy">© <time datetime="2026">2026</time> · Celebrating African food heritage</p>
+        <nav aria-label="Footer">
+          <ul class="footer-links">
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
