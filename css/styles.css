@@ -1,0 +1,2020 @@
+/* ==========================================================================
+   Tastes of Africa — "Spice noir" design system
+   Clean, minimal, editorial: few colors, thin lines, big condensed headings.
+
+   CONTENTS
+    1.  Design tokens (colors, fonts, sizes, spacing)
+    2.  Reset & base elements
+    3.  Typography (headings, labels, <mark>, links)
+    4.  Layout helpers (container, sections, section heads, grids)
+    5.  Buttons, filter buttons, icon buttons, tags
+    6.  Site header & navigation
+    7.  Home: hero
+    8.  Home: mission strip
+    9.  Home: featured dishes
+    10. Home: explore by region
+    11. Home: latest food trends
+    12. Home: newsletter
+    13. Site footer
+    14. Media: image placeholders & responsive embeds
+    15. Inner pages: page header, breadcrumb, prose, quotes
+    16. Recipes: card grid
+    17. Recipe detail: meta, ingredients, servings, steps
+    18. <details> / <summary>
+    19. Tables
+    20. Forms
+    21. Utilities
+    22. Animations
+    23. Responsive breakpoints
+    24. Reduced motion
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. DESIGN TOKENS
+   Dark theme is the default. Light theme is applied with
+   <html data-theme="light">. ".theme-dark" forces dark colors on one
+   block (used by the hero, which always sits on a dark photo overlay).
+   ========================================================================== */
+
+:root,
+.theme-dark {
+  /* Colors — dark (default) */
+  --bg: #16100C;
+  --surface: #1E1611;
+  --placeholder: #3B2A1E;
+  --placeholder-text: #A8977F;   /* label shown on missing images */
+  --line: #3A2C22;
+  --text: #F3EADD;
+  --text-muted: #C9BBA8;
+  --text-faint: #A8977F;
+  --accent: #E8A33D;             /* saffron — the only accent color */
+  --accent-hover: #F4C77E;
+  --on-accent: #16100C;          /* text on solid saffron buttons */
+  --heart: #E5534B;              /* filled heart on saved favorites only */
+  --shadow: 0 1.5rem 3rem -1.5rem rgba(0, 0, 0, 0.7);
+  --shadow-card: 0 0.75rem 1.75rem -0.75rem rgba(0, 0, 0, 0.75);  /* resting card shadow */
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Fonts */
+  --font-display: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, "Courier New", monospace;
+
+  /* Type scale (fluid) */
+  --fs-h1: clamp(3.25rem, 2rem + 5.5vw, 6rem);         /* ~96px */
+  --fs-h2: clamp(2.75rem, 1.75rem + 4.2vw, 4.5rem);    /* ~72px */
+  --fs-h2-sm: clamp(2.25rem, 1.6rem + 2.8vw, 3.5rem);  /* ~56px */
+  --fs-h3: clamp(1.875rem, 1.5rem + 1.4vw, 2.5rem);    /* ~40px card titles */
+  --fs-h4: clamp(1.5rem, 1.35rem + 0.6vw, 1.75rem);    /* ~28px */
+  --fs-body: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem); /* 16–17px */
+  --fs-small: 0.9375rem;                               /* 15px */
+  --fs-label: 0.75rem;                                 /* 12px */
+  --fs-label-sm: 0.6875rem;                            /* 11px */
+  --tracking: 0.125rem;                                /* 2px */
+  --tracking-sm: 0.094rem;                             /* 1.5px */
+
+  /* Spacing & layout */
+  --gutter: clamp(1rem, 4vw, 2.5rem);                  /* side padding 16–40px */
+  --max-width: 75rem;                                  /* 1200px content */
+  --section-space: clamp(4.5rem, 2.5rem + 7vw, 7.5rem);/* ~120px */
+  --radius: 0;                                         /* square corners */
+  --radius-card: 0.5rem;                               /* dish & recipe cards only */
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --speed: 250ms;
+}
+
+/* Light theme. The saffron is darkened from #A8650F to #8F530B so that
+   accent text keeps a 4.5:1 contrast on both --bg and --surface. */
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #F7F0E6;
+  --surface: #EFE5D6;
+  --placeholder: #E2D3BE;
+  --placeholder-text: #4A3A2E;
+  --line: #DCCDB8;
+  --text: #16100C;
+  --text-muted: #4A3A2E;
+  --text-faint: #6E5D4E;
+  --accent: #8F530B;
+  --accent-hover: #6F4108;
+  --on-accent: #F7F0E6;
+  --heart: #C0302A;
+  --shadow: 0 1.5rem 3rem -1.75rem rgba(74, 58, 46, 0.45);
+  --shadow-card: 0 0.75rem 1.75rem -0.75rem rgba(74, 58, 46, 0.35);
+}
+
+/* Blocks that must stay dark in both themes (e.g. the hero overlay) */
+.theme-dark {
+  color-scheme: dark;
+  color: var(--text);
+}
+
+
+/* ==========================================================================
+   2. RESET & BASE ELEMENTS
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--speed), color var(--speed);
+}
+
+img,
+picture,
+svg,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+iframe {
+  border: 0;
+}
+
+input,
+button,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul,
+ol {
+  padding-left: 1.25rem;
+}
+
+/* Lists used for layout (nav, grids) drop their bullets */
+.list-reset {
+  list-style: none;
+  padding: 0;
+}
+
+/* Anchored sections leave a little room above them */
+[id] {
+  scroll-margin-top: 2rem;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Saffron focus outline on every interactive element */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+
+/* ==========================================================================
+   3. TYPOGRAPHY
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  color: var(--text);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); line-height: 1; }
+h4 { font-size: var(--fs-h4); line-height: 1; }
+
+/* Smaller section heading (mission, newsletter) */
+.h2-sm {
+  font-size: var(--fs-h2-sm);
+}
+
+/* Heading spans that force a designed line break */
+.line {
+  display: block;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* Small mono uppercase label shown above section headings */
+.label {
+  display: block;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.label--accent {
+  color: var(--accent);
+}
+
+/* Lead paragraph under page titles */
+.lead {
+  max-width: 40rem;
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  color: var(--text-muted);
+}
+
+/* <mark>: saffron text with a thin saffron underline */
+mark {
+  background: transparent;
+  color: var(--accent);
+  text-decoration: underline 1px var(--accent);
+  text-underline-offset: 0.25em;
+}
+
+/* Inline text links (inside paragraphs) */
+.text-link,
+.prose a {
+  color: var(--accent);
+  text-decoration: underline 1px;
+  text-underline-offset: 0.25em;
+  transition: color var(--speed);
+}
+
+.text-link:hover,
+.prose a:hover {
+  color: var(--accent-hover);
+}
+
+
+/* ==========================================================================
+   4. LAYOUT HELPERS
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--max-width) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Standard section: space above; the last section before the footer
+   gets its bottom space from the footer margin */
+.section {
+  padding-top: var(--section-space);
+}
+
+/* Full-width tinted band (used by "Explore by region") */
+.section--surface {
+  margin-top: var(--section-space);
+  padding-block: var(--section-space);
+  background-color: var(--surface);
+}
+
+/* Section head: label + heading on the left, extra content on the right */
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+  margin-bottom: 2rem;
+}
+
+/* Inside a two-column grid the heading sits at the top of its column */
+.grid-2 > .section-head {
+  align-self: start;
+  align-items: flex-start;
+}
+
+.section-head__text {
+  max-width: 28rem;
+  color: var(--text-muted);
+}
+
+/* Simple responsive grids for inner pages */
+.grid-2,
+.grid-3 {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* Vertical rhythm for stacked children */
+.stack > * + * {
+  margin-top: var(--stack-space, 1rem);
+}
+
+/* Divider line */
+.divider {
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+
+/* ==========================================================================
+   5. BUTTONS, FILTER BUTTONS, ICON BUTTONS, TAGS
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 2.75rem;
+  padding: 0.875rem 1.5rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--speed), color var(--speed), border-color var(--speed);
+}
+
+/* Primary: solid saffron, dark text */
+.btn--primary {
+  background-color: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn--primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+/* Secondary: 1px saffron outline */
+.btn--secondary {
+  background-color: transparent;
+  color: var(--accent);
+}
+
+.btn--secondary:hover {
+  background-color: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn--small {
+  min-height: 2.25rem;
+  padding: 0.5rem 1rem;
+}
+
+/* The "→" inside buttons and cards slides right on hover */
+.arrow {
+  display: inline-block;
+  transition: transform var(--speed) var(--ease);
+}
+
+.btn:hover .arrow,
+a:hover .arrow,
+.region-card:hover .arrow,
+.recipe-card:hover .arrow {
+  transform: translateX(0.3rem);
+}
+
+/* Filter buttons (All / West / East / North / Southern) */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  min-height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking-sm);
+  text-transform: uppercase;
+  transition: background-color var(--speed), color var(--speed), border-color var(--speed);
+}
+
+/* Filter buttons can also be links (region switcher) */
+a.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.filter-btn[aria-pressed="true"],
+.filter-btn[aria-current="page"] {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Square icon button (theme toggle, menu, favorite) */
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text);
+  transition: color var(--speed), border-color var(--speed), background-color var(--speed);
+}
+
+.icon-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.icon-btn svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+/* Favorite (heart) button: outline heart, turns into a filled red heart
+   when saved. script.js sets aria-pressed="true" on saved recipes. */
+.fav-btn svg path {
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  transition: fill var(--speed);
+}
+
+.fav-btn[aria-pressed="true"] {
+  border-color: var(--heart);
+  color: var(--heart);
+}
+
+.fav-btn[aria-pressed="true"] svg path {
+  fill: currentColor;
+}
+
+.fav-btn[aria-pressed="true"] svg {
+  animation: heart-pop 350ms var(--ease);
+}
+
+/* Text version of the favorite button (recipe pages): the heart turns red,
+   the word "Favorite" keeps the normal text color */
+.btn.fav-btn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.btn.fav-btn[aria-pressed="true"] {
+  color: var(--text);
+}
+
+.btn.fav-btn[aria-pressed="true"] svg {
+  color: var(--heart);
+}
+
+/* Country · region tag above dish names */
+.tag {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking);
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Boxed tags (staples, spices) for inner pages */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.tag-list li {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking-sm);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+
+/* ==========================================================================
+   6. SITE HEADER & NAVIGATION
+   ========================================================================== */
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2.5rem;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Logo: Bebas name + tiny mono tagline */
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.logo__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.logo__tagline {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking);
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* Main navigation */
+.site-nav {
+  margin-left: auto;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.nav-list a {
+  display: inline-block;
+  padding-block: 0.375rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-muted);
+  /* underline drawn as a background so it can grow on hover */
+  background: linear-gradient(var(--accent), var(--accent)) left bottom / 0 1px no-repeat;
+  transition: color var(--speed), background-size var(--speed) var(--ease);
+}
+
+.nav-list a:hover {
+  color: var(--accent);
+  background-size: 100% 1px;
+}
+
+/* Current page (or current section, aria-current="true"):
+   full text color + saffron underline */
+.nav-list a[aria-current] {
+  color: var(--text);
+  background-size: 100% 1px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Theme toggle: show the sun in dark mode, the moon in light mode */
+.theme-toggle .icon-moon { display: none; }
+[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+
+/* Hamburger button: hidden on desktop and whenever JavaScript is off
+   (script.js adds the "js" class to <html>) */
+.menu-toggle {
+  display: none;
+}
+
+.menu-toggle__bar {
+  display: block;
+  width: 1.125rem;
+  height: 1px;
+  background-color: currentColor;
+  transition: transform var(--speed) var(--ease), opacity var(--speed);
+}
+
+/* Bars turn into an "X" when the menu is open */
+.menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* Skip link: hidden until focused with the keyboard */
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform var(--speed);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   7. HOME: HERO
+   Background photo with a dark overlay. If images/hero.jpg is missing,
+   the placeholder color shows through instead.
+   ========================================================================== */
+
+.hero {
+  padding-top: clamp(1.5rem, 3vw, 2rem);
+}
+
+.hero__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 26rem);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  min-height: clamp(34rem, 60vh, 38rem);
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 5vw, 3.5rem);
+  background:
+    linear-gradient(100deg, rgba(22, 16, 12, 0.9) 0%, rgba(22, 16, 12, 0.55) 100%),
+    url("../images/hero.jpg") center / cover no-repeat,
+    #3B2A1E;
+}
+
+.hero__title {
+  margin-bottom: 1.5rem;
+}
+
+.hero__intro {
+  max-width: 30rem;
+  margin-bottom: 2rem;
+  color: var(--text-muted);
+}
+
+/* Hero text fades up on page load, one line after another */
+.hero__content > * {
+  animation: fade-up 800ms var(--ease) both;
+}
+
+.hero__content > :nth-child(2) { animation-delay: 100ms; }
+.hero__content > :nth-child(3) { animation-delay: 200ms; }
+.hero__content > :nth-child(4) { animation-delay: 300ms; }
+
+.hero__video {
+  animation: fade-up 800ms 350ms var(--ease) both;
+}
+
+.hero__video figcaption {
+  margin: 0.75rem 0 0;
+}
+
+
+/* ==========================================================================
+   8. HOME: MISSION STRIP
+   ========================================================================== */
+
+.mission__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem clamp(2rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.mission__text {
+  color: var(--text-muted);
+}
+
+
+/* ==========================================================================
+   9. HOME: FEATURED DISHES
+   Each dish is a <figure> card: image, <figcaption>, then the action buttons.
+   Cards get rounded corners and a soft shadow (buttons and fields stay square).
+   ========================================================================== */
+
+.dish-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.dish {
+  display: grid;
+  grid-template-columns: minmax(0, 13.75rem) minmax(0, 1fr);
+  align-items: center;
+  gap: 1.25rem clamp(1.25rem, 3vw, 2rem);
+  margin: 0;
+  padding: clamp(1rem, 2.5vw, 1.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--speed);
+}
+
+.dish:hover {
+  border-color: var(--accent);
+}
+
+/* The photo inside a card gets slightly smaller rounded corners */
+.dish .media {
+  border-radius: calc(var(--radius-card) / 2);
+}
+
+/* Caption = text on the left, heart + "View recipe" on the right */
+.dish__caption {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.25rem clamp(1.25rem, 3vw, 2rem);
+}
+
+.dish__caption .tag {
+  margin-bottom: 0.5rem;
+}
+
+.dish__name {
+  margin-bottom: 0.5rem;
+  transition: color var(--speed);
+}
+
+.dish:hover .dish__name {
+  color: var(--accent);
+}
+
+.dish__desc {
+  max-width: 34rem;
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+.dish__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Message shown when a filter matches no dishes */
+.empty-state {
+  padding-block: 2.5rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--text-muted);
+}
+
+
+/* ==========================================================================
+   10. HOME: EXPLORE BY REGION
+   Tall image cards. The whole card is clickable through the title link.
+   ========================================================================== */
+
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.region-card {
+  position: relative;
+}
+
+.region-card__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+  transition: border-color var(--speed);
+}
+
+.region-card__title .arrow {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+/* Card title links (region cards and recipe cards) */
+.region-card__link,
+.recipe-card__link {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--speed);
+}
+
+/* Stretch the link over the whole card */
+.region-card__link::after,
+.recipe-card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.region-card__link:focus-visible,
+.recipe-card__link:focus-visible {
+  outline: none;
+}
+
+.region-card__link:focus-visible::after,
+.recipe-card__link:focus-visible::after {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.region-card:hover .region-card__link,
+.recipe-card:hover .recipe-card__link {
+  color: var(--accent);
+}
+
+.region-card:hover .region-card__title {
+  border-color: var(--accent);
+}
+
+.region-card__staples {
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking-sm);
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+
+/* ==========================================================================
+   11. HOME: LATEST FOOD TRENDS
+   ========================================================================== */
+
+.trend-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem clamp(1.5rem, 4vw, 3rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.trend .label {
+  margin-bottom: 0.75rem;
+}
+
+.trend__title {
+  margin-bottom: 0.75rem;
+  font-size: var(--fs-h4);
+}
+
+.trend p:last-child {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+
+/* ==========================================================================
+   12. HOME: NEWSLETTER
+   ========================================================================== */
+
+.newsletter {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background-color: var(--surface);
+}
+
+.newsletter__content {
+  padding: clamp(2rem, 5vw, 3.5rem);
+}
+
+.newsletter__content h2 {
+  margin-bottom: 2rem;
+}
+
+.newsletter__media {
+  aspect-ratio: auto;
+  min-height: 20rem;
+}
+
+/* Email field and button joined on one line */
+.inline-form {
+  display: flex;
+  max-width: 28rem;
+}
+
+.inline-form input {
+  flex: 1;
+  min-width: 0;
+}
+
+.inline-form .btn {
+  flex-shrink: 0;
+}
+
+.form-message {
+  margin-top: 1rem;
+  font-size: var(--fs-small);
+  color: var(--accent);
+}
+
+
+/* ==========================================================================
+   13. SITE FOOTER
+   ========================================================================== */
+
+.site-footer {
+  margin-top: var(--section-space);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding-block: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.site-footer .logo__name {
+  font-size: 1.75rem;
+}
+
+.footer__copy {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking-sm);
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: color var(--speed);
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+
+/* ==========================================================================
+   14. MEDIA: IMAGE PLACEHOLDERS & RESPONSIVE EMBEDS
+   ========================================================================== */
+
+/* .media is a fixed-ratio frame with the placeholder color behind it.
+   Set a different ratio with a modifier or style="--ratio: 1 / 1". */
+.media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: var(--ratio, 3 / 2);
+  background-color: var(--placeholder);
+}
+
+.media--tall   { --ratio: 4 / 5; }
+.media--wide   { --ratio: 16 / 9; }
+.media--square { --ratio: 1 / 1; }
+
+.media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms var(--ease);
+}
+
+/* Missing image: browsers render ::before/::after only on images that
+   failed to load, so a missing file shows a clean placeholder with a
+   label (from the data-label attribute) instead of a broken icon. */
+.media img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--placeholder);
+}
+
+.media img::after {
+  content: attr(data-label);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking-sm);
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--placeholder-text);
+}
+
+/* Subtle zoom when hovering a card that contains an image */
+.media:hover img,
+.dish:hover .media img,
+.region-card:hover .media img,
+.recipe-card:hover .media img {
+  transform: scale(1.04);
+}
+
+/* Responsive iframe wrapper (YouTube, Google Maps) */
+.embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background-color: var(--bg);
+}
+
+.embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Maps are a bit taller and slightly toned down to blend in */
+.embed--map {
+  aspect-ratio: 4 / 3;
+}
+
+.embed--map iframe {
+  filter: saturate(0.7) sepia(0.15);
+  transition: filter var(--speed);
+}
+
+.embed--map:hover iframe {
+  filter: none;
+}
+
+/* Photo crops: object-fit: cover trims a photo to fit its frame, and
+   object-position picks which part stays visible. Each rule matches the
+   image file name, so a photo is cropped the same way on every page. */
+.media img[src$="tagine.jpg"]      { object-position: center 70%; }     /* pot sits in the lower half */
+.media img[src$="west-africa.jpg"] { object-position: center bottom; }  /* palm nuts at the bottom */
+.media img[src$="jollof-rice.jpg"] { object-position: center 65%; }     /* drumstick + more rice */
+
+/* A figure placed under a block of text */
+.figure-after {
+  margin-top: 2.5rem;
+}
+
+/* Caption under any embed or figure */
+.media-caption {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking-sm);
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+
+/* ==========================================================================
+   15. INNER PAGES: PAGE HEADER, BREADCRUMB, PROSE, QUOTES
+   ========================================================================== */
+
+.page-header {
+  padding-block: clamp(3rem, 2rem + 5vw, 6rem) clamp(2.5rem, 2rem + 3vw, 4rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.page-header h1 {
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  list-style: none;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking-sm);
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.breadcrumb li + li::before {
+  content: "/";
+  margin-right: 0.5rem;
+  color: var(--line);
+}
+
+.breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent);
+}
+
+/* Long-form text (descriptions, history) */
+.prose {
+  max-width: 42rem;
+}
+
+.prose > * + * {
+  margin-top: 1.25rem;
+}
+
+.prose h2,
+.prose h3 {
+  margin-top: 3rem;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose p,
+.prose li {
+  color: var(--text-muted);
+}
+
+.prose li + li {
+  margin-top: 0.5rem;
+}
+
+.prose li::marker {
+  color: var(--accent);
+}
+
+/* Mission statement / pull quote */
+blockquote,
+.quote {
+  padding-left: clamp(1.25rem, 3vw, 2rem);
+  border-left: 1px solid var(--accent);
+  font-family: var(--font-display);
+  font-size: var(--fs-h2-sm);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+blockquote cite,
+.quote cite {
+  display: block;
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  font-style: normal;
+  letter-spacing: var(--tracking);
+  color: var(--text-faint);
+}
+
+/* Bordered info box (techniques, facts) */
+.panel {
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  background-color: var(--surface);
+}
+
+
+/* ==========================================================================
+   16. RECIPES: CARD GRID
+   ========================================================================== */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
+  list-style: none;
+  padding: 0;
+}
+
+.recipe-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--speed), transform var(--speed) var(--ease), box-shadow var(--speed);
+}
+
+/* Round the top corners of the card photo to match the card */
+.recipe-card > .media {
+  border-radius: calc(var(--radius-card) - 1px) calc(var(--radius-card) - 1px) 0 0;
+}
+
+/* Keyboard focus ring follows the rounded card */
+.recipe-card__link::after {
+  border-radius: var(--radius-card);
+}
+
+.recipe-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.recipe-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 1.5rem;
+}
+
+/* Card titles keep the card-title size whether they are h2 or h3 */
+.recipe-card__body h2,
+.recipe-card__body h3 {
+  font-size: var(--fs-h3);
+}
+
+.recipe-card__body p {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+.recipe-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+/* Keep the favorite button clickable above the stretched card link */
+.recipe-card .fav-btn {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ==========================================================================
+   17. RECIPE DETAIL: META, INGREDIENTS, SERVINGS, STEPS
+   ========================================================================== */
+
+/* Sidebar (ingredients) + main column (instructions) */
+.recipe-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.recipe-layout__aside {
+  position: sticky;
+  top: 2rem;
+}
+
+/* Space between Method and Nutrition in the main column */
+.recipe-layout__main > * + * {
+  margin-top: 4rem;
+}
+
+/* Quick facts row: prep time, servings, difficulty */
+.recipe-meta {
+  display: flex;
+  flex-wrap: wrap;
+  border-block: 1px solid var(--line);
+}
+
+.recipe-meta > div {
+  flex: 1 1 8rem;
+  padding: 1rem 1.25rem;
+}
+
+.recipe-meta > div + div {
+  border-left: 1px solid var(--line);
+}
+
+.recipe-meta dt {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.recipe-meta dd {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+/* Ingredient list: name left, quantity right, thin rules between.
+   .line-list reuses the same look for other two-column lists. */
+.ingredients,
+.line-list {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.ingredients li,
+.line-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.ingredients .qty,
+.line-list .qty {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Servings scaler: [-] 4 servings [+] */
+.servings {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.servings input[type="number"] {
+  width: 6rem;
+}
+
+.servings__count {
+  min-width: 6rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-sm);
+  text-transform: uppercase;
+}
+
+/* Numbered cooking steps */
+.steps {
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+}
+
+.steps li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--text-muted);
+}
+
+.steps li:last-child {
+  border-bottom: 0;
+}
+
+.steps li::before {
+  content: counter(step, decimal-leading-zero);
+  padding-top: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--tracking-sm);
+  color: var(--accent);
+}
+
+
+/* ==========================================================================
+   18. <details> / <summary>
+   Expandable cooking instructions and FAQs.
+   ========================================================================== */
+
+details {
+  border-bottom: 1px solid var(--line);
+}
+
+details:first-of-type {
+  border-top: 1px solid var(--line);
+}
+
+summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.25rem;
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  line-height: 1;
+  text-transform: uppercase;
+  transition: color var(--speed);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* "+" marker turns into "×" when open */
+summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  color: var(--accent);
+  transition: transform var(--speed) var(--ease);
+}
+
+details[open] > summary::after {
+  transform: rotate(45deg);
+}
+
+summary:hover {
+  color: var(--accent);
+}
+
+details > :not(summary) {
+  margin-bottom: 1.5rem;
+}
+
+
+/* ==========================================================================
+   19. TABLES
+   Wrap tables in .table-wrap so they scroll sideways on small screens.
+   ========================================================================== */
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-small);
+}
+
+caption {
+  padding: 1rem;
+  caption-side: top;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--text-faint);
+  border-bottom: 1px solid var(--line);
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+th {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-sm);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+thead th {
+  background-color: var(--surface);
+}
+
+tbody tr:last-child th,
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody tr:hover {
+  background-color: var(--surface);
+}
+
+td.num,
+th.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* ==========================================================================
+   20. FORMS
+   ========================================================================== */
+
+.form {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 40rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Group of related fields (e.g. the two country fields) */
+fieldset {
+  display: grid;
+  gap: 1.5rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  margin-bottom: 1rem;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+/* Labels use the mono label style */
+label,
+.field-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: var(--tracking);
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="tel"],
+input[type="number"],
+input[type="url"],
+select,
+textarea {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.4;
+  transition: border-color var(--speed), box-shadow var(--speed);
+}
+
+textarea {
+  min-height: 10rem;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+::placeholder {
+  color: var(--text-faint);
+  opacity: 1;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--text-faint);
+}
+
+/* Focus: saffron outline plus a soft glow */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 0;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(232, 163, 61, 0.25);
+}
+
+/* Custom select arrow (drawn with two gradients so it follows the theme) */
+select {
+  appearance: none;
+  padding-right: 2.75rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
+    linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 1.3rem) 50%,
+    calc(100% - 0.95rem) 50%;
+  background-size: 0.35rem 0.35rem;
+  background-repeat: no-repeat;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--accent);
+}
+
+/* Help text, character counter and error messages under a field */
+.field-hint {
+  font-size: 0.875rem;
+  color: var(--text-faint);
+}
+
+.field-error {
+  font-size: 0.875rem;
+  color: var(--accent);
+}
+
+/* Empty error messages next to fields take up no space until script.js
+   writes a message into them (#form-error stays in place for screen readers) */
+.field .field-error:empty,
+fieldset .field-error:empty {
+  display: none;
+}
+
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+  border-color: var(--accent);
+}
+
+/* Success message that replaces the form */
+.form-success {
+  max-width: 40rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--accent);
+  background-color: var(--surface);
+  animation: fade-up 500ms var(--ease) both;
+}
+
+.form-success h2,
+.form-success h3 {
+  margin-bottom: 0.75rem;
+}
+
+
+/* ==========================================================================
+   21. UTILITIES
+   ========================================================================== */
+
+/* Used by the recipe filter and form feedback */
+.hidden {
+  display: none !important;
+}
+
+/* Hidden visually but still read by screen readers */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Row of buttons that wraps on small screens */
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.align-center { align-items: center; }
+.text-accent { color: var(--accent); }
+.text-muted  { color: var(--text-muted); }
+.text-center { text-align: center; }
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+
+
+/* ==========================================================================
+   22. ANIMATIONS
+   ========================================================================== */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes heart-pop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Gentle fade-in on scroll. Uses CSS scroll-driven animations where the
+   browser supports them; elsewhere content simply appears. script.js can
+   also add .is-visible for older browsers. */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+.js .reveal.will-reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+}
+
+.js .reveal.will-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* ==========================================================================
+   23. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* ---------- Tablet: 960px and below ---------- */
+@media (max-width: 60rem) {
+  .hero__panel {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .hero__video {
+    max-width: 36rem;
+  }
+
+  .mission__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .mission__grid .label {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+  }
+
+  .recipe-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .recipe-layout__aside {
+    position: static;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Small tablet / large phone: 760px and below ---------- */
+@media (max-width: 47.5rem) {
+  /* Header: logo + buttons on one row, nav panel below */
+  .header-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    padding-block: 1rem;
+  }
+
+  .site-nav {
+    order: 3;
+    grid-column: 1 / -1;
+    margin-left: 0;
+  }
+
+  .js .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* With JavaScript, the menu is collapsed until opened */
+  .js .site-nav:not(.is-open) {
+    display: none;
+  }
+
+  .js .nav-list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .js .nav-list li {
+    border-top: 1px solid var(--line);
+  }
+
+  .js .nav-list a {
+    display: block;
+    padding-block: 0.875rem;
+    background-size: 0 1px;
+  }
+
+  .js .nav-list a[aria-current] {
+    color: var(--accent);
+  }
+
+  /* Mission: single column */
+  .mission__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Dish cards: image left, actions under the text */
+  .dish {
+    grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .dish__caption {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Region cards stack; images become landscape so they are not too tall */
+  .region-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  .region-card .media--tall {
+    --ratio: 4 / 3;
+  }
+
+  .trend-grid,
+  .grid-2,
+  .grid-3,
+  .form-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .newsletter {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .newsletter__media {
+    min-height: 14rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .recipe-meta > div + div {
+    border-left: 0;
+  }
+
+  .recipe-meta > div {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+/* ---------- Phone: 480px and below ---------- */
+@media (max-width: 30rem) {
+  .logo__tagline {
+    letter-spacing: var(--tracking-sm);
+  }
+
+  .hero__panel {
+    padding-inline: 1.25rem;
+  }
+
+  /* Dish rows: full-width image on top */
+  .dish {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dish__actions .btn {
+    flex: 1;
+  }
+
+  /* Newsletter: email field above the button */
+  .inline-form {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .inline-form .btn {
+    width: 100%;
+  }
+
+  .btn {
+    white-space: normal;
+  }
+}
+
+
+/* ==========================================================================
+   24. REDUCED MOTION
+   Respect users who prefer less movement.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-timeline: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .js .reveal.will-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
