@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The food culture of West Africa: staples, spices, cooking techniques and signature dishes.">
+  <title>West Africa | Tastes of Africa</title>
+
+  <!-- Google Fonts: Bebas Neue (headings), DM Sans (body), IBM Plex Mono (labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+  <!-- Site styles and script (shared by every page).
+       script.js loads without "defer" so the saved theme is applied
+       before the page is drawn (no flash); the rest of the script waits
+       for the page to finish loading. -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/script.js"></script>
+</head>
+<body>
+
+  <!-- Keyboard users can jump straight to the content -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ================= SITE HEADER (shared) ================= -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+
+        <!-- Logo -->
+        <a class="logo" href="../index.html">
+          <span class="logo__name">Tastes of Africa</span>
+          <span class="logo__tagline">Food heritage · Recipes · Stories</span>
+        </a>
+
+        <!-- Main navigation -->
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../recipes.html">Recipes</a></li>
+            <li><a href="../regions/west-africa.html" aria-current="page">Regions</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Theme toggle + hamburger menu (phones) -->
+        <div class="header-actions">
+          <button class="icon-btn theme-toggle" type="button" aria-label="Switch between dark and light theme">
+            <!-- Sun icon (shown in dark theme) -->
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <!-- Moon icon (shown in light theme) -->
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.8 6.8 0 0 0 10.7 10.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <button class="icon-btn menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= REGION HEADER ================= -->
+    <header class="page-header">
+      <div class="container">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#regions">Regions</a></li>
+            <li aria-current="page">West Africa</li>
+          </ol>
+        </nav>
+
+        <div class="grid-2 align-center">
+          <div class="stack">
+            <p class="label label--accent mb-0">Explore by region</p>
+            <h1>West Africa</h1>
+            <p class="lead">From the Senegalese coast to the forests of Nigeria: a kitchen of rice, roots and red palm oil, with plenty of heat.</p>
+
+            <!-- Region switcher -->
+            <nav aria-label="Switch region">
+              <ul class="filters list-reset">
+                <li><a class="filter-btn" href="west-africa.html" aria-current="page">West Africa</a></li>
+                <li><a class="filter-btn" href="north-africa.html">North Africa</a></li>
+                <li><a class="filter-btn" href="east-africa.html">East Africa</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="media media--square">
+            <img src="../images/west-africa.jpg" alt="Market stall with a large bowl of red palm nuts in front and vendors selling raw meat behind" data-label="Photo: West Africa" width="800" height="800" decoding="async">
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- ================= FOOD CULTURE ================= -->
+    <section class="section" aria-labelledby="culture-title">
+      <div class="container grid-2">
+        <div class="section-head">
+          <div>
+            <p class="label">Food culture</p>
+            <h2 id="culture-title">Shared pots, big flavor</h2>
+          </div>
+        </div>
+        <div class="prose">
+          <p>West Africa stretches from Senegal and Mali in the west to Nigeria and Cameroon in the east, and is home to hundreds of languages and food traditions. What links them is a love of one-pot cooking: rich stews and soups built on <mark>palm oil</mark>, tomatoes, onions and <mark>scotch bonnet</mark> peppers, eaten with a starch such as rice, fufu or gari.</p>
+          <p>Meals are often shared from a common bowl and guests are always offered food. Celebrations mean big pots of jollof, and street food is everywhere, from Nigerian <mark>suya</mark> grilled over charcoal to Ghanaian kelewele, plantain fried with <mark>ginger</mark> and chili.</p>
+          <p>Many deep flavors come from <mark>fermentation</mark>: <mark>dawadawa</mark> (also called iru or soumbala), made from fermented locust beans, gives soups a rich, savory taste.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STAPLES ================= -->
+    <section class="section" aria-labelledby="staples-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="label">Staples</p>
+            <h2 class="h2-sm" id="staples-title">What's in the pantry</h2>
+          </div>
+        </div>
+        <div class="grid-3">
+          <div class="panel stack">
+            <h3>Rice</h3>
+            <p class="text-muted">African rice was first grown in the inner Niger Delta about 3,000 years ago.</p>
+          </div>
+
+          <div class="panel stack">
+            <h3>Cassava</h3>
+            <p class="text-muted">Turned into gari, fufu and attiéké; in some countries the leaves are cooked too.</p>
+          </div>
+
+          <div class="panel stack">
+            <h3>Yam</h3>
+            <p class="text-muted">Boiled, fried, or pounded into smooth, stretchy pounded yam.</p>
+          </div>
+
+          <div class="panel stack">
+            <h3>Plantain</h3>
+            <p class="text-muted">Fried as dodo or kelewele, or boiled and pounded with cassava.</p>
+          </div>
+
+          <div class="panel stack">
+            <h3>Palm oil</h3>
+            <p class="text-muted">Red, fragrant oil from the oil palm that colors and flavors stews.</p>
+          </div>
+
+          <div class="panel stack">
+            <h3>Groundnuts</h3>
+            <p class="text-muted">Peanuts thicken stews like mafé and flavor the yaji spice rub.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COOKING TECHNIQUES ================= -->
+    <section class="section" aria-labelledby="techniques-title">
+      <div class="container grid-2">
+        <div class="section-head">
+          <div>
+            <p class="label">Cooking techniques</p>
+            <h2 class="h2-sm" id="techniques-title">How West Africa cooks</h2>
+          </div>
+        </div>
+        <div class="prose">
+          <ul>
+            <li><strong><mark>Pounding</mark></strong>: boiled yam, cassava or plantain is pounded in a large wooden mortar into smooth fufu.</li>
+            <li><strong><mark>Slow stewing</mark></strong>: blended tomatoes, peppers and onions are fried in oil until thick and sweet, the start of jollof and many stews.</li>
+            <li><strong><mark>Fermenting</mark></strong>: cassava becomes gari and attiéké, maize becomes ogi, and locust beans become <mark>dawadawa</mark>.</li>
+            <li><strong><mark>Charcoal grilling</mark></strong>: thin strips of beef are rubbed with <mark>yaji</mark>, a peanut and chili spice mix, to make suya.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VIDEO ================= -->
+    <section class="section" aria-labelledby="video-title">
+      <div class="container grid-2 align-center">
+        <div>
+          <div class="section-head">
+            <div>
+              <p class="label">Watch</p>
+              <h2 class="h2-sm" id="video-title">West Africa on screen</h2>
+            </div>
+          </div>
+          <p class="text-muted">Insider Food tastes jollof from three countries and asks the question every West African has an opinion on.</p>
+        </div>
+        <figure>
+          <div class="embed">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/hFyh3Lbp430"
+              title="YouTube video by Insider Food: The Best Jollof Rice: Nigerian, Ghanaian Or Senegalese?"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <figcaption class="media-caption">Video: “The Best Jollof Rice: Nigerian, Ghanaian Or Senegalese?” · Insider Food</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= EXAMPLE DISHES ================= -->
+    <section class="section" aria-labelledby="dishes-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="label">Example dishes</p>
+            <h2 class="h2-sm" id="dishes-title">Taste West Africa</h2>
+          </div>
+          <a class="btn btn--secondary" href="../recipes.html">All recipes <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <div class="card-grid">
+          <!-- Recipe card: Jollof Rice -->
+          <article class="recipe-card" data-region="west-africa">
+            <div class="media">
+              <img src="../images/jollof-rice.jpg" alt="Roast chicken legs resting on a tray of orange-red jollof rice" data-label="Photo: Jollof rice" width="660" height="440" loading="lazy" decoding="async">
+            </div>
+            <div class="recipe-card__body">
+              <p class="tag">Nigeria · West Africa</p>
+              <h3><a class="recipe-card__link" href="../recipes/jollof-rice.html">Jollof Rice</a></h3>
+              <p>Tomato-and-pepper rice cooked low until the bottom turns smoky. The star of every West African party.</p>
+              <div class="recipe-card__footer">
+                <span class="label label--accent mb-0" aria-hidden="true">View recipe <span class="arrow">→</span></span>
+                <button class="icon-btn fav-btn" type="button" data-id="jollof-rice" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.6-4.6-9.4-9.3C1.4 7.8 3.5 4.5 7 4.5c2.1 0 3.7 1.1 5 3 1.3-1.9 2.9-3 5-3 3.5 0 5.6 3.3 4.4 6.5-1.8 4.7-9.4 9.3-9.4 9.3z"/></svg>
+                  <span class="visually-hidden">Favorite: Jollof Rice</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- More signature dishes (no recipe page yet) -->
+          <div class="panel stack">
+            <h3>More to taste</h3>
+            <ul class="line-list">
+              <li><span>Thiéboudienne</span> <span class="qty">Senegal</span></li>
+              <li><span>Egusi soup</span> <span class="qty">Nigeria</span></li>
+              <li><span>Waakye</span> <span class="qty">Ghana</span></li>
+              <li><span>Mafé</span> <span class="qty">Mali &amp; Senegal</span></li>
+              <li><span>Kelewele</span> <span class="qty">Ghana</span></li>
+              <li><span>Attiéké with fish</span> <span class="qty">Côte d'Ivoire</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= SITE FOOTER (shared) ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a class="logo" href="../index.html">
+          <span class="logo__name">Tastes of Africa</span>
+        </a>
+        <p class="footer__copy">© <time datetime="2026">2026</time> · Celebrating African food heritage</p>
+        <nav aria-label="Footer">
+          <ul class="footer-links">
+            <li><a href="../recipes.html">Recipes</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

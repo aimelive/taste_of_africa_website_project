@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The food culture of East Africa: staples, spices, cooking techniques and signature dishes.">
+  <title>East Africa | Tastes of Africa</title>
+
+  <!-- Google Fonts: Bebas Neue (headings), DM Sans (body), IBM Plex Mono (labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+  <!-- Site styles and script (shared by every page).
+       script.js loads without "defer" so the saved theme is applied
+       before the page is drawn (no flash); the rest of the script waits
+       for the page to finish loading. -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/script.js"></script>
+</head>
+<body>
+
+  <!-- Keyboard users can jump straight to the content -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ================= SITE HEADER (shared) ================= -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+
+        <!-- Logo -->
+        <a class="logo" href="../index.html">
+          <span class="logo__name">Tastes of Africa</span>
+          <span class="logo__tagline">Food heritage · Recipes · Stories</span>
+        </a>
+
+        <!-- Main navigation -->
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../recipes.html">Recipes</a></li>
+            <li><a href="../regions/west-africa.html" aria-current="true">Regions</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Theme toggle + hamburger menu (phones) -->
+        <div class="header-actions">
+          <button class="icon-btn theme-toggle" type="button" aria-label="Switch between dark and light theme">
+            <!-- Sun icon (shown in dark theme) -->
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <!-- Moon icon (shown in light theme) -->
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.8 6.8 0 0 0 10.7 10.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <button class="icon-btn menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= REGION HEADER ================= -->
+    <header class="page-header">
+      <div class="container">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#regions">Regions</a></li>
+            <li aria-current="page">East Africa</li>
+          </ol>
+        </nav>
+
+        <div class="grid-2 align-center">
+          <div class="stack">
+            <p class="label label--accent mb-0">Explore by region</p>
+            <h1>East Africa</h1>
+            <p class="lead">From the Ethiopian highlands to the Swahili coast: fermented teff, fragrant spice islands and stews scooped up by hand.</p>
+
+            <!-- Region switcher -->
+            <nav aria-label="Switch region">
+              <ul class="filters list-reset">
+                <li><a class="filter-btn" href="west-africa.html">West Africa</a></li>
+                <li><a class="filter-btn" href="north-africa.html">North Africa</a></li>
+                <li><a class="filter-btn" href="east-africa.html" aria-current="page">East Africa</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="media media--square">
+            <img src="../images/east-africa.jpg" alt="A hand holding up a bowl of cooked greens with boiled plantain, pumpkin, red beans and sliced avocado" data-label="Photo: East Africa" width="800" height="800" decoding="async">
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- ================= FOOD CULTURE ================= -->
+    <section class="section" aria-labelledby="culture-title">
+      <div class="container grid-2">
+        <div class="section-head">
+          <div>
+            <p class="label">Food culture</p>
+            <h2 id="culture-title">Highlands, lakes and spice islands</h2>
+          </div>
+        </div>
+        <div class="prose">
+          <p>East Africa brings together very different kitchens. In Ethiopia and Eritrea, meals are served on <mark>injera</mark> and spiced with <mark>berbere</mark>, a red blend of chili, fenugreek, ginger and other spices. Around the Great Lakes, in Rwanda, Uganda and Burundi, cooking centers on beans, plantains and <mark>cassava leaves</mark>.</p>
+          <p>On the Swahili coast and the island of Zanzibar, centuries of Indian Ocean trade with Arabia and India brought <mark>cloves</mark>, <mark>cardamom</mark> and <mark>cinnamon</mark> into dishes like pilau rice. Zanzibar and Pemba are still known as the Spice Islands.</p>
+          <p>Eating together from one platter is central. In Ethiopia, feeding someone by hand, called <i>gursha</i>, shows respect and affection, and coffee is roasted and brewed in a ceremony for guests.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STAPLES ================= -->
+    <section class="section" aria-labelledby="staples-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="label">Staples</p>
+            <h2 class="h2-sm" id="staples-title">What's in the pantry</h2>
+          </div>
+        </div>
+        <div class="grid-3">
+          <div class="panel stack">
+            <h3>Teff</h3>
+            <p class="text-muted">The tiny Ethiopian grain fermented into injera; naturally gluten-free.</p>
+          </div>
+
+          <div class="panel stack">
+            <h3>Maize</h3>
+            <p class="text-muted">Cooked into ugali, the firm porridge eaten across Kenya and Tanzania.</p>
+          </div>
+
+          <div class="panel stack">
+            <h3>Cassava leaves</h3>
+            <p class="text-muted">Pounded and simmered into isombe in Rwanda and sombe in Burundi.</p>
+          </div>
+
+          <div class="panel stack">
+            <h3>Matoke</h3>
+            <p class="text-muted">Green cooking bananas, steamed and mashed, a staple in Uganda.</p>
+          </div>
+
+          <div class="panel stack">
+            <h3>Beans</h3>
+            <p class="text-muted">Eaten almost every day in Rwanda, Burundi and Uganda.</p>
+          </div>
+
+          <div class="panel stack">
+            <h3>Cloves</h3>
+            <p class="text-muted">Grown on Zanzibar and Pemba and traded around the Indian Ocean.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COOKING TECHNIQUES ================= -->
+    <section class="section" aria-labelledby="techniques-title">
+      <div class="container grid-2">
+        <div class="section-head">
+          <div>
+            <p class="label">Cooking techniques</p>
+            <h2 class="h2-sm" id="techniques-title">How East Africa cooks</h2>
+          </div>
+        </div>
+        <div class="prose">
+          <ul>
+            <li><strong><mark>Fermenting</mark></strong>: teff batter rests for days to make sour, spongy injera.</li>
+            <li><strong><mark>Pounding</mark></strong>: cassava leaves are pounded in a wooden mortar before a long simmer.</li>
+            <li><strong><mark>Steaming in banana leaves</mark></strong>: Ugandan matoke and luwombo stews cook wrapped in leaves.</li>
+            <li><strong><mark>Spiced butter</mark></strong>: <mark>niter kibbeh</mark>, butter infused with spices, is the base of many Ethiopian wats.</li>
+            <li><strong><mark>Open-fire grilling</mark></strong>: <mark>nyama choma</mark>, grilled meat, is a social event in Kenya and Tanzania.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VIDEO ================= -->
+    <section class="section" aria-labelledby="video-title">
+      <div class="container grid-2 align-center">
+        <div>
+          <div class="section-head">
+            <div>
+              <p class="label">Watch</p>
+              <h2 class="h2-sm" id="video-title">East Africa on screen</h2>
+            </div>
+          </div>
+          <p class="text-muted">Al Jazeera's Street Food series visits Zanzibar to show how centuries of Indian Ocean trade shaped what the island eats today.</p>
+        </div>
+        <figure>
+          <div class="embed">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/nQobCj1kUuM"
+              title="YouTube video by Al Jazeera English: Zanzibar: Spices, slaves and the spirit of independence - Street Food"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <figcaption class="media-caption">Video: “Zanzibar: Spices, slaves and the spirit of independence - Street Food” · Al Jazeera English</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= EXAMPLE DISHES ================= -->
+    <section class="section" aria-labelledby="dishes-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="label">Example dishes</p>
+            <h2 class="h2-sm" id="dishes-title">Taste East Africa</h2>
+          </div>
+          <a class="btn btn--secondary" href="../recipes.html">All recipes <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <div class="card-grid">
+          <!-- Recipe card: Injera -->
+          <article class="recipe-card" data-region="east-africa">
+            <div class="media">
+              <img src="../images/injera.jpg" alt="Spongy injera flatbread topped with lentil, split-pea, greens and vegetable stews, with rolled injera and a cup of tea behind" data-label="Photo: Injera" width="660" height="440" loading="lazy" decoding="async">
+            </div>
+            <div class="recipe-card__body">
+              <p class="tag">Ethiopia · East Africa</p>
+              <h3><a class="recipe-card__link" href="../recipes/injera.html">Injera</a></h3>
+              <p>Spongy, sour teff flatbread that doubles as plate and spoon for Ethiopian stews.</p>
+              <div class="recipe-card__footer">
+                <span class="label label--accent mb-0" aria-hidden="true">View recipe <span class="arrow">→</span></span>
+                <button class="icon-btn fav-btn" type="button" data-id="injera" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.6-4.6-9.4-9.3C1.4 7.8 3.5 4.5 7 4.5c2.1 0 3.7 1.1 5 3 1.3-1.9 2.9-3 5-3 3.5 0 5.6 3.3 4.4 6.5-1.8 4.7-9.4 9.3-9.4 9.3z"/></svg>
+                  <span class="visually-hidden">Favorite: Injera</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Recipe card: Isombe -->
+          <article class="recipe-card" data-region="east-africa">
+            <div class="media">
+              <img src="../images/isombe.jpg" alt="Bowl of dark green pounded cassava-leaf stew, with white rice and fried plantain on the side" data-label="Photo: Isombe" width="660" height="440" loading="lazy" decoding="async">
+            </div>
+            <div class="recipe-card__body">
+              <p class="tag">Rwanda · East Africa</p>
+              <h3><a class="recipe-card__link" href="../recipes/isombe.html">Isombe</a></h3>
+              <p>Pounded cassava leaves simmered with peanut paste, eggplant and palm oil.</p>
+              <div class="recipe-card__footer">
+                <span class="label label--accent mb-0" aria-hidden="true">View recipe <span class="arrow">→</span></span>
+                <button class="icon-btn fav-btn" type="button" data-id="isombe" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.6-4.6-9.4-9.3C1.4 7.8 3.5 4.5 7 4.5c2.1 0 3.7 1.1 5 3 1.3-1.9 2.9-3 5-3 3.5 0 5.6 3.3 4.4 6.5-1.8 4.7-9.4 9.3-9.4 9.3z"/></svg>
+                  <span class="visually-hidden">Favorite: Isombe</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- More signature dishes (no recipe page yet) -->
+          <div class="panel stack">
+            <h3>More to taste</h3>
+            <ul class="line-list">
+              <li><span>Doro wat</span> <span class="qty">Ethiopia</span></li>
+              <li><span>Ugali &amp; sukuma wiki</span> <span class="qty">Kenya</span></li>
+              <li><span>Pilau</span> <span class="qty">Tanzania</span></li>
+              <li><span>Matoke</span> <span class="qty">Uganda</span></li>
+              <li><span>Nyama choma</span> <span class="qty">Kenya</span></li>
+              <li><span>Shiro</span> <span class="qty">Eritrea &amp; Ethiopia</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= SITE FOOTER (shared) ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a class="logo" href="../index.html">
+          <span class="logo__name">Tastes of Africa</span>
+        </a>
+        <p class="footer__copy">© <time datetime="2026">2026</time> · Celebrating African food heritage</p>
+        <nav aria-label="Footer">
+          <ul class="footer-links">
+            <li><a href="../recipes.html">Recipes</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

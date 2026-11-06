@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The food culture of North Africa: staples, spices, cooking techniques and signature dishes.">
+  <title>North Africa | Tastes of Africa</title>
+
+  <!-- Google Fonts: Bebas Neue (headings), DM Sans (body), IBM Plex Mono (labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+  <!-- Site styles and script (shared by every page).
+       script.js loads without "defer" so the saved theme is applied
+       before the page is drawn (no flash); the rest of the script waits
+       for the page to finish loading. -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/script.js"></script>
+</head>
+<body>
+
+  <!-- Keyboard users can jump straight to the content -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ================= SITE HEADER (shared) ================= -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+
+        <!-- Logo -->
+        <a class="logo" href="../index.html">
+          <span class="logo__name">Tastes of Africa</span>
+          <span class="logo__tagline">Food heritage · Recipes · Stories</span>
+        </a>
+
+        <!-- Main navigation -->
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../recipes.html">Recipes</a></li>
+            <li><a href="../regions/west-africa.html" aria-current="true">Regions</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Theme toggle + hamburger menu (phones) -->
+        <div class="header-actions">
+          <button class="icon-btn theme-toggle" type="button" aria-label="Switch between dark and light theme">
+            <!-- Sun icon (shown in dark theme) -->
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <!-- Moon icon (shown in light theme) -->
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.8 6.8 0 0 0 10.7 10.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <button class="icon-btn menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= REGION HEADER ================= -->
+    <header class="page-header">
+      <div class="container">
+
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#regions">Regions</a></li>
+            <li aria-current="page">North Africa</li>
+          </ol>
+        </nav>
+
+        <div class="grid-2 align-center">
+          <div class="stack">
+            <p class="label label--accent mb-0">Explore by region</p>
+            <h1>North Africa</h1>
+            <p class="lead">Between the Mediterranean and the Sahara: slow-cooked tagines, hand-rolled couscous and spice markets that have traded for centuries.</p>
+
+            <!-- Region switcher -->
+            <nav aria-label="Switch region">
+              <ul class="filters list-reset">
+                <li><a class="filter-btn" href="west-africa.html">West Africa</a></li>
+                <li><a class="filter-btn" href="north-africa.html" aria-current="page">North Africa</a></li>
+                <li><a class="filter-btn" href="east-africa.html">East Africa</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="media media--square">
+            <img src="../images/north-africa.jpg" alt="Tall cones of red, orange, ochre and white ground spices at a market stall" data-label="Photo: North Africa" width="800" height="800" decoding="async">
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- ================= FOOD CULTURE ================= -->
+    <section class="section" aria-labelledby="culture-title">
+      <div class="container grid-2">
+        <div class="section-head">
+          <div>
+            <p class="label">Food culture</p>
+            <h2 id="culture-title">Where trade routes meet</h2>
+          </div>
+        </div>
+        <div class="prose">
+          <p>North Africa covers Morocco, Algeria, Tunisia and Libya, the region known as the Maghreb, with Egypt to the east. Its cooking grew from <mark>Amazigh (Berber)</mark> traditions, then absorbed Arab, Andalusian, Ottoman and French influences from everyone who passed through.</p>
+          <p>Food here balances sweet and savory: meat cooked with dried fruit, honey and nuts, warmed by spice blends like <mark>ras el hanout</mark> and the chili paste <mark>harissa</mark>. In 2020 UNESCO recognized the knowledge and traditions of <mark>couscous</mark>, nominated jointly by Algeria, Mauritania, Morocco and Tunisia.</p>
+          <p>Friday couscous with the family is a weekly ritual in many homes, and sweet mint tea, poured from high above the glass to make it foam, is offered to every guest.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= STAPLES ================= -->
+    <section class="section" aria-labelledby="staples-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="label">Staples</p>
+            <h2 class="h2-sm" id="staples-title">What's in the pantry</h2>
+          </div>
+        </div>
+        <div class="grid-3">
+          <div class="panel stack">
+            <h3>Couscous</h3>
+            <p class="text-muted">Semolina rolled by hand into tiny grains and steamed two or three times.</p>
+          </div>
+
+          <div class="panel stack">
+            <h3>Bread</h3>
+            <p class="text-muted">Round loaves like Moroccan khobz are used to scoop food at every meal.</p>
+          </div>
+
+          <div class="panel stack">
+            <h3>Chickpeas &amp; lentils</h3>
+            <p class="text-muted">The base of soups like Moroccan harira and Egyptian koshari.</p>
+          </div>
+
+          <div class="panel stack">
+            <h3>Olives &amp; olive oil</h3>
+            <p class="text-muted">Grown along the Mediterranean coast and used every day.</p>
+          </div>
+
+          <div class="panel stack">
+            <h3>Preserved lemons</h3>
+            <p class="text-muted">Lemons cured in salt for weeks; the soft rind adds a bright, salty kick.</p>
+          </div>
+
+          <div class="panel stack">
+            <h3>Dates</h3>
+            <p class="text-muted">Grown in desert oases and eaten to break the fast during Ramadan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COOKING TECHNIQUES ================= -->
+    <section class="section" aria-labelledby="techniques-title">
+      <div class="container grid-2">
+        <div class="section-head">
+          <div>
+            <p class="label">Cooking techniques</p>
+            <h2 class="h2-sm" id="techniques-title">How North Africa cooks</h2>
+          </div>
+        </div>
+        <div class="prose">
+          <ul>
+            <li><strong><mark>Slow braising</mark></strong>: meat and vegetables cook for hours in a clay tagine, whose cone lid returns steam to the pot.</li>
+            <li><strong><mark>Steaming</mark></strong>: couscous sits in the top half of a couscoussier, steaming above a simmering stew.</li>
+            <li><strong><mark>Salt preserving</mark></strong>: lemons, olives and <mark>smen</mark> (aged butter) are cured to keep for months.</li>
+            <li><strong><mark>Spice blending</mark></strong>: <mark>ras el hanout</mark> can combine more than 20 spices, including <mark>cumin</mark>, <mark>cinnamon</mark>, ginger and <mark>saffron</mark>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= VIDEO ================= -->
+    <section class="section" aria-labelledby="video-title">
+      <div class="container grid-2 align-center">
+        <div>
+          <div class="section-head">
+            <div>
+              <p class="label">Watch</p>
+              <h2 class="h2-sm" id="video-title">North Africa on screen</h2>
+            </div>
+          </div>
+          <p class="text-muted">A short africanews report on how four countries came together to have couscous added to UNESCO's list of intangible cultural heritage.</p>
+        </div>
+        <figure>
+          <div class="embed">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/l65jt9WbJhc"
+              title="YouTube video by africanews: North Africa's iconic dish Couscous gets UNESCO recognition"
+              loading="lazy"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <figcaption class="media-caption">Video: “North Africa's iconic dish Couscous gets UNESCO recognition” · africanews</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= EXAMPLE DISHES ================= -->
+    <section class="section" aria-labelledby="dishes-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="label">Example dishes</p>
+            <h2 class="h2-sm" id="dishes-title">Taste North Africa</h2>
+          </div>
+          <a class="btn btn--secondary" href="../recipes.html">All recipes <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <div class="card-grid">
+          <!-- Recipe card: Lamb Tagine -->
+          <article class="recipe-card" data-region="north-africa">
+            <div class="media">
+              <img src="../images/tagine.jpg" alt="A Moroccan tagine served on a plate beside its cone-lidded clay pot, with steam rising." data-label="Photo: Lamb tagine" width="660" height="440" loading="lazy" decoding="async">
+            </div>
+            <div class="recipe-card__body">
+              <p class="tag">Morocco · North Africa</p>
+              <h3><a class="recipe-card__link" href="../recipes/tagine.html">Lamb Tagine</a></h3>
+              <p>Slow-braised lamb with apricots, ras el hanout and preserved lemon, cooked in a cone-lidded clay pot.</p>
+              <div class="recipe-card__footer">
+                <span class="label label--accent mb-0" aria-hidden="true">View recipe <span class="arrow">→</span></span>
+                <button class="icon-btn fav-btn" type="button" data-id="tagine" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.6-4.6-9.4-9.3C1.4 7.8 3.5 4.5 7 4.5c2.1 0 3.7 1.1 5 3 1.3-1.9 2.9-3 5-3 3.5 0 5.6 3.3 4.4 6.5-1.8 4.7-9.4 9.3-9.4 9.3z"/></svg>
+                  <span class="visually-hidden">Favorite: Lamb Tagine</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- More signature dishes (no recipe page yet) -->
+          <div class="panel stack">
+            <h3>More to taste</h3>
+            <ul class="line-list">
+              <li><span>Couscous with seven vegetables</span> <span class="qty">Morocco</span></li>
+              <li><span>Harira</span> <span class="qty">Morocco</span></li>
+              <li><span>Shakshuka</span> <span class="qty">Tunisia</span></li>
+              <li><span>Koshari</span> <span class="qty">Egypt</span></li>
+              <li><span>Pastilla</span> <span class="qty">Morocco</span></li>
+              <li><span>Chorba</span> <span class="qty">Algeria</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= SITE FOOTER (shared) ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a class="logo" href="../index.html">
+          <span class="logo__name">Tastes of Africa</span>
+        </a>
+        <p class="footer__copy">© <time datetime="2026">2026</time> · Celebrating African food heritage</p>
+        <nav aria-label="Footer">
+          <ul class="footer-links">
+            <li><a href="../recipes.html">Recipes</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
