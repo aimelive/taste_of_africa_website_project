@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tastes of Africa celebrates African food heritage: signature dishes, regional kitchens, spices and the stories behind them.">
+  <title>Tastes of Africa | Food heritage, recipes and stories</title>
+
+  <!-- Google Fonts: Bebas Neue (headings), DM Sans (body), IBM Plex Mono (labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+  <!-- Site styles and script (shared by every page).
+       script.js loads without "defer" so the saved theme is applied
+       before the page is drawn (no flash); the rest of the script waits
+       for the page to finish loading. -->
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/script.js"></script>
+</head>
+<body>
+
+  <!-- Keyboard users can jump straight to the content -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ================= SITE HEADER (shared) ================= -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+
+        <!-- Logo -->
+        <a class="logo" href="index.html">
+          <span class="logo__name">Tastes of Africa</span>
+          <span class="logo__tagline">Food heritage · Recipes · Stories</span>
+        </a>
+
+        <!-- Main navigation -->
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="regions/west-africa.html">Regions</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Theme toggle + hamburger menu (phones) -->
+        <div class="header-actions">
+          <button class="icon-btn theme-toggle" type="button" aria-label="Switch between dark and light theme">
+            <!-- Sun icon (shown in dark theme) -->
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <!-- Moon icon (shown in light theme) -->
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.8 6.8 0 0 0 10.7 10.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <button class="icon-btn menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= 1. HERO =================
+         Background photo (images/hero.jpg) is set in CSS with a dark overlay. -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero__panel theme-dark">
+
+          <!-- Welcome text -->
+          <div class="hero__content">
+            <p class="label label--accent">Welcome · 54 countries, one table</p>
+            <h1 class="hero__title" id="hero-title">
+              <span class="line">Bold flavors,</span>
+              <span class="line">rooted in Africa.</span>
+            </h1>
+            <p class="hero__intro">Discover the dishes, spices and stories that shape African kitchens, from West African jollof to Rwandan isombe.</p>
+            <a class="btn btn--primary" href="recipes.html">Explore recipes <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+
+          <!-- Introductory video -->
+          <figure class="hero__video">
+            <div class="embed">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/uQHPebkTGAw"
+                title="YouTube video by CNN: A Taste of African Food"
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption class="label">Watch: an introduction to African food culture</figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 2. OUR MISSION ================= -->
+    <section class="section mission" aria-labelledby="mission-title">
+      <div class="container">
+        <div class="mission__grid reveal">
+          <p class="label">Our mission</p>
+          <h2 class="h2-sm" id="mission-title">
+            <span class="line">Food is how Africa</span>
+            <span class="line">tells its story.</span>
+          </h2>
+          <p class="mission__text">Every dish carries history: <mark>palm oil</mark> stews of the coast, <mark>berbere</mark> from the Ethiopian highlands, and <mark>ras el hanout</mark> from Moroccan spice markets. We collect these recipes so they keep being cooked.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 3. FEATURED DISHES =================
+         Filter buttons use data-filter; each dish uses data-region.
+         Buttons sit inside <figcaption> so the caption stays the figure's last child.
+         Favorite buttons use data-id (saved to localStorage in script.js). -->
+    <section class="section featured" id="featured" aria-labelledby="featured-title">
+      <div class="container">
+
+        <div class="section-head reveal">
+          <div>
+            <p class="label">Featured dishes</p>
+            <h2 id="featured-title">
+              <span class="line">A plate from</span>
+              <span class="line">every corner.</span>
+            </h2>
+          </div>
+
+          <div class="filters" role="group" aria-label="Filter dishes by region">
+            <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-btn" type="button" data-filter="west-africa" aria-pressed="false">West</button>
+            <button class="filter-btn" type="button" data-filter="east-africa" aria-pressed="false">East</button>
+            <button class="filter-btn" type="button" data-filter="north-africa" aria-pressed="false">North</button>
+            <button class="filter-btn" type="button" data-filter="southern-africa" aria-pressed="false">Southern</button>
+          </div>
+        </div>
+
+        <div class="dish-list">
+
+          <!-- Dish: Jollof Rice -->
+          <figure class="dish reveal" data-region="west-africa">
+            <div class="media dish__media">
+              <img src="images/jollof-rice.jpg" alt="Roast chicken legs resting on a tray of orange-red jollof rice" data-label="Photo: Jollof rice" width="660" height="440" loading="lazy" decoding="async">
+            </div>
+            <figcaption class="dish__caption">
+              <div class="dish__text">
+                <p class="tag">Nigeria · West Africa</p>
+                <h3 class="dish__name">Jollof Rice</h3>
+                <p class="dish__desc">Tomato-and-pepper rice cooked low until the bottom turns smoky.</p>
+              </div>
+              <div class="dish__actions">
+                <button class="icon-btn fav-btn" type="button" data-id="jollof-rice" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.6-4.6-9.4-9.3C1.4 7.8 3.5 4.5 7 4.5c2.1 0 3.7 1.1 5 3 1.3-1.9 2.9-3 5-3 3.5 0 5.6 3.3 4.4 6.5-1.8 4.7-9.4 9.3-9.4 9.3z"/></svg>
+                  <span class="visually-hidden">Favorite: Jollof Rice</span>
+                </button>
+                <a class="btn btn--secondary" href="recipes/jollof-rice.html">View recipe<span class="visually-hidden">: Jollof Rice</span> <span class="arrow" aria-hidden="true">→</span></a>
+              </div>
+            </figcaption>
+          </figure>
+
+          <!-- Dish: Lamb Tagine -->
+          <figure class="dish reveal" data-region="north-africa">
+            <div class="media dish__media">
+              <img src="images/tagine.jpg" alt="A Moroccan tagine served on a plate beside its cone-lidded clay pot, with steam rising." data-label="Photo: Lamb tagine" width="660" height="440" loading="lazy" decoding="async">
+            </div>
+            <figcaption class="dish__caption">
+              <div class="dish__text">
+                <p class="tag">Morocco · North Africa</p>
+                <h3 class="dish__name">Lamb Tagine</h3>
+                <p class="dish__desc">Slow-braised lamb with apricots, cumin and preserved lemon.</p>
+              </div>
+              <div class="dish__actions">
+                <button class="icon-btn fav-btn" type="button" data-id="tagine" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.6-4.6-9.4-9.3C1.4 7.8 3.5 4.5 7 4.5c2.1 0 3.7 1.1 5 3 1.3-1.9 2.9-3 5-3 3.5 0 5.6 3.3 4.4 6.5-1.8 4.7-9.4 9.3-9.4 9.3z"/></svg>
+                  <span class="visually-hidden">Favorite: Lamb Tagine</span>
+                </button>
+                <a class="btn btn--secondary" href="recipes/tagine.html">View recipe<span class="visually-hidden">: Lamb Tagine</span> <span class="arrow" aria-hidden="true">→</span></a>
+              </div>
+            </figcaption>
+          </figure>
+
+          <!-- Dish: Isombe -->
+          <figure class="dish reveal" data-region="east-africa">
+            <div class="media dish__media">
+              <img src="images/isombe.jpg" alt="Bowl of dark green pounded cassava-leaf stew, with white rice and fried plantain on the side" data-label="Photo: Isombe" width="660" height="440" loading="lazy" decoding="async">
+            </div>
+            <figcaption class="dish__caption">
+              <div class="dish__text">
+                <p class="tag">Rwanda · East Africa</p>
+                <h3 class="dish__name">Isombe</h3>
+                <p class="dish__desc">Pounded cassava leaves simmered with peanut paste and palm oil.</p>
+              </div>
+              <div class="dish__actions">
+                <button class="icon-btn fav-btn" type="button" data-id="isombe" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.6-4.6-9.4-9.3C1.4 7.8 3.5 4.5 7 4.5c2.1 0 3.7 1.1 5 3 1.3-1.9 2.9-3 5-3 3.5 0 5.6 3.3 4.4 6.5-1.8 4.7-9.4 9.3-9.4 9.3z"/></svg>
+                  <span class="visually-hidden">Favorite: Isombe</span>
+                </button>
+                <a class="btn btn--secondary" href="recipes/isombe.html">View recipe<span class="visually-hidden">: Isombe</span> <span class="arrow" aria-hidden="true">→</span></a>
+              </div>
+            </figcaption>
+          </figure>
+
+          <!-- Dish: Bunny Chow -->
+          <figure class="dish reveal" data-region="southern-africa">
+            <div class="media dish__media">
+              <img src="images/bunny-chow.jpg" alt="Three small hollowed-out bread loaves filled with golden curry and coriander, on an animal-print platter" data-label="Photo: Bunny chow" width="660" height="440" loading="lazy" decoding="async">
+            </div>
+            <figcaption class="dish__caption">
+              <div class="dish__text">
+                <p class="tag">South Africa · Southern Africa</p>
+                <h3 class="dish__name">Bunny Chow</h3>
+                <p class="dish__desc">Durban curry served in a hollowed-out loaf of white bread.</p>
+              </div>
+              <div class="dish__actions">
+                <button class="icon-btn fav-btn" type="button" data-id="bunny-chow" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.6-4.6-9.4-9.3C1.4 7.8 3.5 4.5 7 4.5c2.1 0 3.7 1.1 5 3 1.3-1.9 2.9-3 5-3 3.5 0 5.6 3.3 4.4 6.5-1.8 4.7-9.4 9.3-9.4 9.3z"/></svg>
+                  <span class="visually-hidden">Favorite: Bunny Chow</span>
+                </button>
+                <a class="btn btn--secondary" href="recipes/bunny-chow.html">View recipe<span class="visually-hidden">: Bunny Chow</span> <span class="arrow" aria-hidden="true">→</span></a>
+              </div>
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 4. EXPLORE BY REGION ================= -->
+    <section class="section section--surface regions" id="regions" aria-labelledby="regions-title">
+      <div class="container">
+
+        <div class="section-head reveal">
+          <div>
+            <p class="label">Explore by region</p>
+            <h2 id="regions-title">
+              <span class="line">Three regions,</span>
+              <span class="line">three kitchens.</span>
+            </h2>
+          </div>
+          <p class="section-head__text">Each region has its own staples, spices and cooking methods. Pick one to see its food culture and signature dishes.</p>
+        </div>
+
+        <div class="region-grid">
+
+          <!-- Region: West Africa -->
+          <article class="region-card reveal">
+            <div class="media media--tall">
+              <img src="images/west-africa.jpg" alt="Market stall with a large bowl of red palm nuts in front and vendors selling raw meat behind" data-label="Photo: West Africa" width="600" height="750" loading="lazy" decoding="async">
+            </div>
+            <h3 class="region-card__title">
+              <a class="region-card__link" href="regions/west-africa.html">West Africa</a>
+              <span class="arrow" aria-hidden="true">→</span>
+            </h3>
+            <p class="region-card__staples"><span class="visually-hidden">Staples: </span>Palm oil · Scotch bonnet · Rice</p>
+          </article>
+
+          <!-- Region: North Africa -->
+          <article class="region-card reveal">
+            <div class="media media--tall">
+              <img src="images/north-africa.jpg" alt="Tall cones of red, orange, ochre and white ground spices at a market stall" data-label="Photo: North Africa" width="600" height="750" loading="lazy" decoding="async">
+            </div>
+            <h3 class="region-card__title">
+              <a class="region-card__link" href="regions/north-africa.html">North Africa</a>
+              <span class="arrow" aria-hidden="true">→</span>
+            </h3>
+            <p class="region-card__staples"><span class="visually-hidden">Staples: </span>Ras el hanout · Couscous · Tagine</p>
+          </article>
+
+          <!-- Region: East Africa -->
+          <article class="region-card reveal">
+            <div class="media media--tall">
+              <img src="images/east-africa.jpg" alt="A hand holding up a bowl of cooked greens with boiled plantain, pumpkin, red beans and sliced avocado" data-label="Photo: East Africa" width="600" height="750" loading="lazy" decoding="async">
+            </div>
+            <h3 class="region-card__title">
+              <a class="region-card__link" href="regions/east-africa.html">East Africa</a>
+              <span class="arrow" aria-hidden="true">→</span>
+            </h3>
+            <p class="region-card__staples"><span class="visually-hidden">Staples: </span>Berbere · Teff · Cassava leaves</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 5. LATEST FOOD TRENDS ================= -->
+    <section class="section trends" aria-labelledby="trends-title">
+      <div class="container">
+
+        <div class="section-head reveal">
+          <div>
+            <p class="label">Latest food trends</p>
+            <h2 id="trends-title">What's cooking now.</h2>
+          </div>
+        </div>
+
+        <div class="trend-grid">
+
+          <article class="trend reveal">
+            <p class="label label--accent">01 · Grains</p>
+            <h3 class="trend__title">Teff goes global</h3>
+            <p>The tiny Ethiopian grain behind injera is turning up in bakeries worldwide.</p>
+          </article>
+
+          <article class="trend reveal">
+            <p class="label label--accent">02 · Spices</p>
+            <h3 class="trend__title">Suya beyond the grill</h3>
+            <p>Nigeria's peanut-chili rub is moving onto popcorn, fries and roast veg.</p>
+          </article>
+
+          <article class="trend reveal">
+            <p class="label label--accent">03 · Kitchens</p>
+            <h3 class="trend__title">Plant-based by tradition</h3>
+            <p>Bean, leaf and grain dishes that were vegan long before it was a trend.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 6. NEWSLETTER ================= -->
+    <section class="section newsletter-section" aria-labelledby="newsletter-title">
+      <div class="container">
+        <div class="newsletter reveal">
+
+          <div class="newsletter__content">
+            <p class="label">Newsletter</p>
+            <h2 class="h2-sm" id="newsletter-title">
+              <span class="line">A new recipe,</span>
+              <span class="line">every week.</span>
+            </h2>
+
+            <!-- script.js checks the email and writes feedback into #newsletter-message -->
+            <form class="newsletter__form" id="newsletter-form" action="#" method="post">
+              <div class="field">
+                <label for="newsletter-email">Email address</label>
+                <div class="inline-form">
+                  <input type="email" id="newsletter-email" name="email" placeholder="you@example.com" autocomplete="email" aria-describedby="newsletter-message" required>
+                  <button class="btn btn--primary" type="submit">Subscribe <span class="arrow" aria-hidden="true">→</span></button>
+                </div>
+              </div>
+              <p class="form-message" id="newsletter-message" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="media newsletter__media">
+            <img src="images/spices-market.jpg" alt="Brass bowls of red and orange ground spices, dried herbs and black seeds on a wooden table" data-label="Photo: Spices in a market" width="800" height="600" loading="lazy" decoding="async">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= SITE FOOTER (shared) ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a class="logo" href="index.html">
+          <span class="logo__name">Tastes of Africa</span>
+        </a>
+        <p class="footer__copy">© <time datetime="2026">2026</time> · Celebrating African food heritage</p>
+        <nav aria-label="Footer">
+          <ul class="footer-links">
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
